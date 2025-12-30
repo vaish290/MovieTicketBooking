@@ -4,7 +4,7 @@ import "dotenv/config";
 import connectDB from "./configs/db.js";
 import { clerkMiddleware } from '@clerk/express'
 import { serve } from "inngest/express";
-import { inngest, functions } from "./ingest/index.js";
+import { inngest, functions } from "./inngest/index.js";
 
 
 const app=express();
@@ -23,5 +23,5 @@ app.get("/",(req,res)=>{
 })
 
 //api endpoint for this ingest
-app.use('/api/ingest',serve({ client: inngest, functions }))
+app.use('/api/inngest',serve({ client: inngest, functions }))
 app.listen(port,()=>console.log(`Server is running on port ${port}`));
